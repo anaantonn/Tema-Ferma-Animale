@@ -6,14 +6,15 @@ using namespace std;
 
 class Animal
 {
-    public:
+    private:
         string Nume;
         string Specie;
         string Rasa;
         string CategorieDeProductie;
         int Greutate;
         int Varsta;
-
+   
+    public:
     Animal(){};
     Animal(string nume, string specie, string rasa, string categorieDeProductie, int greutate, int varsta)
         : Nume(nume), Specie(specie), Rasa(rasa), CategorieDeProductie(categorieDeProductie), Greutate(greutate), Varsta(varsta) {}
