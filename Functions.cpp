@@ -3,48 +3,6 @@
 
 using namespace std;
 
-ostream& operator << (ostream& os, const Animal& a)
-{
-    os << "Nume: " << a.Nume << " " << "Specie: " << a.Specie << " " << "Categorie de productie: " << a.CategorieDeProductie << " " << "Greutate: " << a.Greutate << " "
-    << "Varsta: " << a.Varsta << endl;
-
-    return os;
-}
-
-istream& operator >> (istream& in, Animal& a)
-{
-    cout << "Nume: ";
-    in >> a.Nume;
-    cout << "Specie: ";
-    in >> a.Specie;
-    cout << "Rasa: ";
-    in >> a.Rasa;
-    cout << "Categorie de productie: ";
-    in >> a.CategorieDeProductie;
-    cout << "Greutate: ";
-    in >> a.Greutate;
-    cout << "Varsta: ";
-    in >> a.Varsta;
-
-    return in;
-}
-
-// Function to convert a string to lowercase
-string toLowerCase(const string& str)
-{
-    string lowerStr = str;
-    transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
-    return lowerStr;
-}
-
-// Helper function to find an animal by name (case-insensitive)
-vector<Animal>::iterator findAnimalByName(vector<Animal>& animals, const string& name)
-{
-    string lowerName = toLowerCase(name);
-    return find_if(animals.begin(), animals.end(), [&lowerName](const Animal& a) { return toLowerCase(a.Nume) == lowerName; });
-}
-
-
 int showMenu()
 {
     int number;
@@ -54,7 +12,9 @@ int showMenu()
     cout << "\t 3) Editati detaliile unui animal" << endl;
     cout << "\t 4) Eliminati un animal" << endl;
     cout << "\t 5) Iesiti din aplicatie" << endl;
+    cout << "Selectie: ";
     cin >> number;
+    system("clear");
     return number;
 }
 
@@ -70,14 +30,14 @@ void addNewAnimal(vector<Animal>& animals)
 void showEntireList(vector<Animal>& animals)
 {
     if(animals.size() == 0)
-        {
-            cout << "Niciun animal intordus!" << endl;
-            return;
-        }
-        
-    for(Animal &a : animals) 
     {
-        cout << a << endl;
+        cout << "Niciun animal intordus!" << endl;
+        return;
+    }
+        
+    for(int i = 0; i < animals.size(); i++) 
+    {   
+        cout << i+1 << ")" << animals[i] << endl;
     }
         
 }
@@ -86,32 +46,32 @@ void showEntireList(vector<Animal>& animals)
 
 void changeAnimalDetails(vector<Animal>& animals)
 {
-    string animalDeCautat;
-    Animal a;
+    Animal updated;
+    int indexToUpdate;
 
     if(animals.size() == 0)
-         {
-             cout << "Niciun animal intordus!" << endl;
-             return;
-         }
-
-    cout << "Introduceti numele animalului pentru care doriti sa faceti modificarea: ";
-    cin >> animalDeCautat;
-    auto it = findAnimalByName(animals, animalDeCautat);
-    if (it != animals.end())
     {
-        cout << "Introduceti modificarile: ";
-        cin >> a;
-        *it = a;
+        cout << "Niciun animal intordus!" << endl;
+        return;
+    }
+
+    showEntireList(animals);
+    cout << "Introduceti numarul corespunzator animalului pentru care doriti sa faceti modificarile: ";
+    cin >> indexToUpdate;
+    if (indexToUpdate > 0 && indexToUpdate <= animals.size())
+    {
+        cout << "Introduceti modificarile: " << endl;
+        cin >> updated;
+        animals[indexToUpdate-1] = updated;
     }
     else
-        cout << "Animalul nu exista!" << endl;
+        cout << "Animalul nu a fost gasit." << endl;
 }
 
 
 void deleteAnimal(vector<Animal>& animals)
 {
-    string animalDeSters;
+    int indexToDelete;
 
     if(animals.size() == 0)
          {
@@ -119,15 +79,14 @@ void deleteAnimal(vector<Animal>& animals)
              return;
          }
                         
-
-    cout << "Introduceti numele animalului pe care doriti sa il stergeti: ";
-    cin >> animalDeSters;
-    auto itToDelete = findAnimalByName(animals, animalDeSters);
-    if (itToDelete != animals.end())
-         {
-             animals.erase(itToDelete);
-             cout << "Animalul a fost sters." << endl;
-         }
+    showEntireList(animals);
+    cout << "Introduceti numarul corespunzator animalului pentru care doriti sa faceti modificarile: ";
+    cin >> indexToDelete;
+    if (indexToDelete > 0 && indexToDelete <= animals.size())
+    {
+        animals.erase(animals.begin()+indexToDelete-1);
+        cout << "Animalul a fost sters." << endl;
+    }
     else
         cout << "Animalul nu a fost gasit." << endl;
 }
