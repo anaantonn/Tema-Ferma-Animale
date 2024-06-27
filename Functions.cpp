@@ -1,5 +1,6 @@
 #include "Functions.h"
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -23,7 +24,6 @@ void addNewAnimal(vector<Animal>& animals)
     Animal a;
     cout << "Ati ales sa adaugati un animal nou. Va rugam introduceti urmatoarele detalii: " << endl;
     cin >> a;
-
     animals.push_back(a);    
 }
 
@@ -34,27 +34,19 @@ void showEntireList(vector<Animal>& animals)
         cout << "Niciun animal intordus!" << endl;
         return;
     }
-        
     for(int i = 0; i < animals.size(); i++) 
-    {   
         cout << i+1 << ")" << animals[i] << endl;
-    }
-        
 }
 
-
-
 void changeAnimalDetails(vector<Animal>& animals)
-{
+{   
+    if(animals.size() == 0)
+         {
+             cout << "Niciun animal intordus!" << endl;
+             return;
+         }         
     Animal updated;
     int indexToUpdate;
-
-    if(animals.size() == 0)
-    {
-        cout << "Niciun animal intordus!" << endl;
-        return;
-    }
-
     showEntireList(animals);
     cout << "Introduceti numarul corespunzator animalului pentru care doriti sa faceti modificarile: ";
     cin >> indexToUpdate;
@@ -68,19 +60,17 @@ void changeAnimalDetails(vector<Animal>& animals)
         cout << "Animalul nu a fost gasit." << endl;
 }
 
-
 void deleteAnimal(vector<Animal>& animals)
-{
-    int indexToDelete;
+{   
 
     if(animals.size() == 0)
-         {
-             cout << "Niciun animal intordus!" << endl;
-             return;
-         }
-                        
+    {
+        cout << "Niciun animal intordus!" << endl;
+        return;
+    }           
+    int indexToDelete;             
     showEntireList(animals);
-    cout << "Introduceti numarul corespunzator animalului pentru care doriti sa faceti modificarile: ";
+    cout << "Introduceti numarul corespunzator animalului pe care doriti sa il eliminati din lista: ";
     cin >> indexToDelete;
     if (indexToDelete > 0 && indexToDelete <= animals.size())
     {
