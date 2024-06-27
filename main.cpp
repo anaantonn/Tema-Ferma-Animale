@@ -19,13 +19,13 @@ int main()
             case 1:
                 addNewAnimal(animals);
                 break;
-            case 2: // Afiseaza intreaga lista a animalelor                
+            case 2:        
                 showEntireList(animals);                   
                 break;
-            case 3: // Modifica detaliile unui animal                                         
+            case 3:                                        
                 changeAnimalDetails(animals);
                 break;          
-            case 4: //  sterge un element din lista                
+            case 4:              
                 deleteAnimal(animals);                    
                 break;
             case 5:
@@ -36,5 +36,4 @@ int main()
         }
     }
     while (true);
-
 }
