@@ -3,8 +3,6 @@
 
 using namespace std;
 
-
-
 ostream& operator << (ostream& os, const Animal& a)
 {
     os << "Nume: " << a.Nume << " " << "Specie: " << a.Specie << " " << "Categorie de productie: " << a.CategorieDeProductie << " " << "Greutate: " << a.Greutate << " "
