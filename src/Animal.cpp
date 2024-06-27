@@ -5,8 +5,11 @@ using namespace std;
 
 ostream& operator << (ostream& os, const Animal& a)
 {
-    os << "Nume: " << a.Nume << " " << "Specie: " << a.Specie << " " << "Categorie de productie: " << a.CategorieDeProductie << " " << "Greutate: " << a.Greutate << " "
-    << "Varsta: " << a.Varsta << endl;
+    os << "Nume: " << a.Nume << " ";
+    os << "Specie: " << a.Specie << " "; 
+    os << "Categorie de productie: " << a.CategorieDeProductie << " ";
+    os << "Greutate: " << a.Greutate << " ";
+    os << "Varsta: " << a.Varsta << endl;
 
     return os;
 }

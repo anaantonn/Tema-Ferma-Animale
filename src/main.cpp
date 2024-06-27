@@ -2,8 +2,6 @@
 #include <vector>
 #include "Functions.h"
 #include "Animal.h"
-#include "Functions.cpp"
-#include "Animal.cpp"
 
 using namespace std;
 
