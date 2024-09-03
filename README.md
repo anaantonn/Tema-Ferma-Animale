@@ -13,7 +13,7 @@ You can add, delete animals from the system or modify certain details about each
 To compile this program:
 
     ```bash
-    g++ main.cpp -o main.out
+    python src/main.py
     ```
 
 To run the program:
