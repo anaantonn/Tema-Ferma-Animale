@@ -1,11 +1,22 @@
+
 # Tema-Ferma-Animale
 
-Acesta este un proiect realizat in scop didactic pentru a ma familiariza cu limbajul C++.
+A project made in order to practice programming using C++.
 
-## Subtitlu
+## Overview
 
-### Sub-subtitlu
+This is a simple program made to simulate the management of animals on a farm.
+You can add, delete animals from the system or modify certain details about each entry.
 
-List:
-- elem1
-- elem2
+## Installation
+
+To compile this program:
+
+    ```bash
+    g++ main.cpp -o main.out
+    ```
+
+To run the program:
+    ```bash
+    ./main.out
+    ```
