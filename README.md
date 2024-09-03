@@ -12,7 +12,7 @@ You can add, delete animals from the system or modify certain details about each
 1. To compile this program:
 
     ```bash
-    g++ main.cpp -o main.out
+    g++ src/main.cpp src/Functions.cpp src/Animal.cpp -o main.out
     ```
 
 2. To run the program:
