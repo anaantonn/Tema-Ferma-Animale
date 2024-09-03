@@ -1,4 +1,3 @@
-
 # Tema-Ferma-Animale
 
 A project made in order to practice programming using C++.
@@ -10,13 +9,13 @@ You can add, delete animals from the system or modify certain details about each
 
 ## Installation
 
-To compile this program:
+1. To compile this program:
 
     ```bash
-    python src/main.py
+    g++ main.cpp -o main.out
     ```
 
-To run the program:
+2. To run the program:
 
     ```bash
     ./main.out
