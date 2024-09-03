@@ -17,6 +17,7 @@ To compile this program:
     ```
 
 To run the program:
+
     ```bash
     ./main.out
     ```
